@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 // Configuração do provedor 
-const smtp = nodemailer.createTransport({
+let smtp = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
@@ -12,32 +12,44 @@ const smtp = nodemailer.createTransport({
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
     }
-})
+});
 
-//atewivar 2 step verification e criar um App password na sua conta
+//lista de emails que quero enviar ( buscar do banco de dados)
+const lista = [
+    { nome: "David", email: "manoeudavi3@gmail.com" },
+    { nome: "Adalto", email: "adalto21lopes13rocha@gmail.com" }
+];
 
-// Configuração do Email (Repository)
-const emailConfig = {
-    from: "manoeudavi20@gmail.com",
-    to: "manoeudavi3@gmail.com",
-    subject: "Utimo teste",
-    html: "<p>David, isso aqui é um teste para confirmar a API</p>"
-}
 
-// Disparar email ( função)
+// chamar a configuração do e-mail e passar como parâmetro para quem vai ser enviado.
+//Disparar e-mail
+const emailPromises = lista.map(pessoa => {
+    const emailConfig = {
+        from: "manoeudavi20@gmail.com",
+        to: pessoa.email,
+        subject: "Último teste",
+        html: `<p>Olá, ${pessoa.nome}, esse e-mail é para confirmar ...</p>`
+    };
 
-    // chamar a configuração do e-mail e passar como parâmetro para quem vai ser enviado.
-    smtp.sendMail(emailConfig)
-        .then(message => {
-            smtp.close()
-            console.log(message)
-        }).catch(error => {
-            console.log(error)
-            smtp.close()
-        })
+    return smtp.sendMail(emailConfig);
+});
 
+Promise.all(emailPromises)
+    .then(results => {
+        console.log(results);
+        smtp.close();
+    })
+    .catch(error => {
+        console.log("Erro ao enviar os emails:", error);
+        smtp.close();
+    });
+
+
+
+
+        
 const app = express()
-app.listen(3002, () => {
+app.listen(3003, () => {
     console.log("Servidor iniciado")
 })
-
+  

@@ -46,7 +46,7 @@ export async function receiveEmail(req, res) {
       const emailConfig = {
         from: "manoeudavi20@gmail.com",
         to: pessoa.email,
-        subject: "Teste da API",
+        subject: "Confirmação de doação",
         template: 'main',
       };
 

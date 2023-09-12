@@ -1,8 +1,5 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
-
 dotenv.config();
 
 const templatePath = '../view/';

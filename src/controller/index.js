@@ -23,7 +23,7 @@ export async function receiveEmail(req, res) {
       },
     });
 
-    const handlebarOptions = {
+/*     const handlebarOptions = {
       viewEngine: {
         extName: ".handlebars",
         partialsDir: path.resolve(__dirname, templatePath),
@@ -33,12 +33,28 @@ export async function receiveEmail(req, res) {
       extName: ".handlebars",
     };
 
-    smtp.use('compile', hbs(handlebarOptions));
+    smtp.use('compile', hbs(handlebarOptions)); */
 
     // Lista de emails que quero enviar (buscar do banco de dados)
     const lista = [
       { nome: "", email: email },
     ];
+
+
+    const emailBody = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Confirmação de Doação</title>
+      </head>
+      <body>
+          <h1>Confirmação de Doação</h1>
+          <p>Olá,</p>
+          <p>Este é um exemplo de email de confirmação de doação.</p>
+      </body>
+      </html>
+    `;
+
 
     // Chamar a configuração do e-mail e passar como parâmetro para quem vai ser enviado.
     // Disparar e-mail
@@ -47,7 +63,7 @@ export async function receiveEmail(req, res) {
         from: "manoeudavi20@gmail.com",
         to: pessoa.email,
         subject: "Confirmação de doação",
-        template: 'main',
+        html: emailBody
       };
 
       return await smtp.sendMail(emailConfig);

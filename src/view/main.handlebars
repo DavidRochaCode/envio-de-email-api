@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: gray;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    /* Primeiro quadrado roxo */
+    .purple-square {
+      background-color: #910142;
+      width: 100% - 50px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: normal;
+      color: white;
+      padding-left: 50px;
+      letter-spacing: 3px;
+    }
+
+    .purple-square h2{
+      padding-bottom: 20px;
+    }
+
+    .purple-square img {
+      width: 130px;
+    }
+
+    /* Segundo quadrado preto */
+    .black-square {
+      background-color: #110113;
+      width: 100% - 50px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 50px;
+      padding-right: 50px;
+      letter-spacing: 2px;
+      color: rgb(180, 176, 176);
+    }
+
+    .black-square h2{
+      color: #dd1c73;
+      font-size: 20px;
+     
+    }
+
+    .black-square div{
+      margin: 10px;
+    }
+
+    /* Terceiro quadrado cinza */
+    .gray-square {
+      background-color: rgb(6, 4, 4);
+      width: 100% - 50px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      color: rgb(180, 176, 176);
+      padding-left: 50px;
+      padding-right: 50px;
+      letter-spacing: 2px;
+
+    }
+
+    .gray-square p {
+      font-size: 20px;
+    }
+
+    .gray-square img {
+      width:  25px;
+    }
+
+    .gray-square div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .gray-square a {
+      padding-left: 15px;
+      color: rgb(180, 176, 176);
+      text-decoration: none;
+    }
+
+    .gray-square p {
+      font-size: 16px
+    }
+    .gray-square em {
+      color: #dd1c73;
+    }
+
+
+    /* Estilos para o texto */
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Primeiro quadrado roxo -->
+  <div class="purple-square">
+    <!-- Logo aqui -->
+    <img src="./assets/logo.png" alt="">
+    <h2>Confirmação de Inscrição</h2>
+  </div>
+
+  <!-- Segundo quadrado preto -->
+  <div class="black-square">
+    
+    <div><h2>Olá, <label class="nome">{{nome}}</label></h2></div>
+    <div><p>É com grande satisfação que confirmamos a sua inscrição na Maratona de Programação que será realizada no dia 10/11/2024</p></div>
+  </div>
+
+  <!-- Terceiro quadrado cinza -->
+  <div class="gray-square">
+    <h2>Nos vemos em breve!</h2>
+    <!-- Ícone da rede social -->
+    <div>
+    <img src="./assets/instagram.png" alt="Ícone da rede social">
+    <a href="">Siga a gente no Instagram</a>
+    </div>
+    
+    
+    <!-- Três campos para textos adicionais -->
+    <p>Caso tenha dúvidas, não deixe de entrar em contato. </p>
+    <p>Abaixo está um documento comprovatório da sua inscrição. <em>Imprima-o e leve-o no dia da maratona.</em></p>
+  </div>
+</body>
+</html>

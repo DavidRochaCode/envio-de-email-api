@@ -6,6 +6,7 @@ const templatePath = '../view/';
 
 export async function receiveEmail(req, res) {
   const email = req.body.email;
+  const produto = req.body.produto
 
   try {
     // Configuração do provedor
@@ -47,7 +48,8 @@ export async function receiveEmail(req, res) {
       <body>
           <h1>Confirmação de Doação</h1>
           <p>Olá,</p>
-          <p>Este é um exemplo de email de confirmação de doação.</p>
+          <p>Este é um e-mail de confirmação da doação do produto "${produto}" no Doe+.</p>
+          <p>Estamos felizes pela sua ajuda..</p>
       </body>
       </html>
     `;
